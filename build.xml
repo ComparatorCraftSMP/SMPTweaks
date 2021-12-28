@@ -1,0 +1,45 @@
+<project name="Midnight Supervisor" default="dist" basedir=".">
+ 
+    <property name="src" location="src"/>
+    <property name="libs" location="libs"/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+
+    <path id="classpath">
+        <fileset dir="${libs}" includes="**/*.jar"/>
+    </path>
+ 
+    <target name="init">
+        <tstamp/>
+        <mkdir dir="${build}"/>
+    </target>
+ 
+    <target name="compile" depends="init" description="compile the source">
+        <javac srcdir="${src}/main/java" destdir="${build}" classpathref="classpath"/>
+    </target>
+ 
+    <target name="dist" depends="compile" description="generate the distribution">
+        <copy todir="${build}">
+            <fileset dir="${src}/main/resources"/>
+        </copy>
+        <mkdir dir="${dist}"/>
+        <jar jarfile="${dist}/MidnightSupervisor-${DSTAMP}.jar" basedir="${build}"/>
+    </target>
+    
+    <target name="libs" description="downloads the most up-to-date jar file">
+        <mkdir dir="${libs}"/>
+        <delete includeemptydirs="true">
+            <fileset dir="${libs}" includes="**/*"/>
+        </delete>
+        <get src="https://repo.purpurmc.org/snapshots/org/purpurmc/purpur/purpur-api/1.18.1-R0.1-SNAPSHOT/purpur-api-1.18.1-R0.1-20211210.210818-1.jar"
+             dest="${libs}/purpur.jar"/>
+    </target>
+    
+    <target name="clean" description="clean up">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+    <target name="full-clean" depends="clean" description="clean up more than just the bins">
+        <delete dir="${libs}"/>
+    </target>
+</project>
