@@ -1,4 +1,5 @@
 name: SMPTweaks
-main: net.comparatorcraftsmp.smptweaks.Main
-version: 0.1
-author: Dynamism
+main: net.comparatorcraftsmp.smptweaks.TweaksPlugin
+version: ${project.version}
+authors: [Dynamism]
+description: All the small tweaks on the ComparatorCraft server
