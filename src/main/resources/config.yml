@@ -1,7 +1,4 @@
 #Plugin enable
 phantom-toggle: true
 
-#Database info
-custom-database-location: false
-#This only has an effect if the above is true
-database-location: example.db
+database-location: data.sqlite3

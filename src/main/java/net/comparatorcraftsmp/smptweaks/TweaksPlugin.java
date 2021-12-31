@@ -15,7 +15,7 @@ public class TweaksPlugin extends JavaPlugin {
         //Regester Events and commands
         getServer().getPluginManager().registerEvents(new EventListener(), this);
         //initalize the database
-        String databaseName = getConfig().getString("database-location", "data.db");
+        String databaseName = getConfig().getString("database-location", "data.sqlite3");
         File databaseLocation = new File(getDataFolder(), databaseName);
         Access.init(this, databaseLocation);
     }
