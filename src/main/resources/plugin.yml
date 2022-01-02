@@ -3,3 +3,8 @@ main: net.comparatorcraftsmp.smptweaks.TweaksPlugin
 version: ${project.version}
 authors: [Dynamism]
 description: All the small tweaks on the ComparatorCraft server
+commands:
+   phantomtoggle:
+      description: toggles whether or not phantoms are allowed to spawn because of you
+      usage: /phantomtoggle <optional "true" or "false" where true disables spawns>
+      permission: smptweaks.phantomtoggle
