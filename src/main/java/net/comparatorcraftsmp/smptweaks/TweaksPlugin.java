@@ -13,8 +13,12 @@ public class TweaksPlugin extends JavaPlugin {
         //Load or create config file 
         saveDefaultConfig();
         //Regester Events and commands
-        getServer().getPluginManager().registerEvents(new PhantomListener(), this);
-        this.getCommand("phantomtoggle").setExecutor(new PhantomToggle());
+        if(getConfig().getString("phantom-toggle", "true").toLowerCase().equals("true")){
+            System.out.println("PhantomToggle enabled");
+            getServer().getPluginManager().registerEvents(new PhantomListener(), this);
+            this.getCommand("phantomtoggle").setExecutor(new PhantomToggle());
+        }
+
         getServer().getPluginManager().registerEvents(new EventListener(), this);
         //initalize the database
         String databaseName = getConfig().getString("database-location", "data.sqlite3");
