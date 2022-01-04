@@ -1,4 +1,3 @@
-#Plugin enable
 phantom-toggle: true
 
 database-location: data.sqlite3
