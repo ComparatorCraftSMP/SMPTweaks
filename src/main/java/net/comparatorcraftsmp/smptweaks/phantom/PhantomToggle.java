@@ -45,7 +45,11 @@ public class PhantomToggle implements CommandExecutor{
                 }
             }
             try{
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "Phantom Overide now set to " + Access.getPhantomOverride(uuid)));
+                if(Access.getPhantomOverride(uuid)){
+                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "Phantoms can no longer spawn on you"));
+                }else{
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "Phantoms can now spawn on you"));
+                }
             }catch(Exception e){
                 System.out.println(e);
                 System.out.println(e.getMessage());
